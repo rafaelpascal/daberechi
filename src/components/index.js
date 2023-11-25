@@ -6,6 +6,7 @@ import Sendmail from "./Mail/Sendmail";
 import Footer from "./Footer/Footer";
 import Projects from "./Projects/Projects";
 import Aboutmecom from "./Aboutme/Aboutme";
+import Project from "./Project/Project";
 
 export {
   Navbar,
@@ -16,4 +17,5 @@ export {
   Footer,
   Projects,
   Aboutmecom,
+  Project,
 };

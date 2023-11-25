@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { projects } from "../../constants";
 
-const Projects = () => {
+const Projects = ({ onButtonClick }) => {
   return (
     <div
       className="bg-gradient-to-br from-white via-blue-50
@@ -18,29 +18,29 @@ const Projects = () => {
           </p>
         </div>
         <div>
-          <Link to={"/project"}>
-            {projects.map((project) => (
-              <div key={project.id}>
+          {projects.map((project) => (
+            <div key={project.id}>
+              <Link to={`/project/${project.id}`}>
                 <img
                   src={project.img}
                   alt="AbiaOneId"
                   className="rounded-2xl mt-[30px] lg:mt-[131px]"
                 />
-                <div className="flex flex-col sm:flex-row justify-between items-start mt-4">
-                  <div>
-                    <p>Project: {project.name}</p>
-                    <p>Role: {project.role}</p>
-                    <p>Year: {project.year}</p>
-                  </div>
-                  <div className="mt-8 lg:mt-0">
-                    <p className="w-full lg:w-[486px] flex justify-end items-end">
-                      {project.description}
-                    </p>
-                  </div>
+              </Link>
+              <div className="flex flex-col sm:flex-row justify-between items-start mt-4">
+                <div>
+                  <p>Project: {project.name}</p>
+                  <p>Role: {project.role}</p>
+                  <p>Year: {project.year}</p>
+                </div>
+                <div className="mt-8 lg:mt-0">
+                  <p className="w-full lg:w-[486px] flex justify-end items-end">
+                    {project.description}
+                  </p>
                 </div>
               </div>
-            ))}
-          </Link>
+            </div>
+          ))}
         </div>
         <div className="flex flex-col sm:flex-row justify-between w-full gap-10 lg:max-w-7xl mx-auto mt-[5rem] items-center">
           <div className="w-full lg:w-[313px] bg-[#F0F0F0] lg:bg-white border-2 lg:border-4 rounded-[90px] lg:rounded-[129px] h-[130px] lg:h-[141px] shadow-xl border-[#000] flex justify-center items-center lg:max-w-7xl mx-auto p-3">
