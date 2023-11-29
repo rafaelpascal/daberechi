@@ -1,16 +1,24 @@
 import React from "react";
-import { meabout } from "../../assets";
+import { meabout, blueBg, pinkBg, yelloBg } from "../../assets";
 import { profiles } from "../../constants";
 import { Sendmail } from "../../components";
 
 const Aboutme = () => {
   return (
-    <div
-      className="bg-gradient-to-br from-white via-blue-50
-        to-pink-50"
-    >
-      <div className="w-full flex justify-center items-center lg:max-w-7xl mx-auto p-3">
-        <div>
+    <div>
+      <div className="w-full flex justify-center items-center p-3">
+        {/* <img src={yelloBg} alt="yelloBg" className="absolute top-[rem] z-0" /> */}
+        {/* <img
+          src={blueBg}
+          alt="blueBg"
+          className="absolute top-[20rem] left-0 z-0"
+        />
+        <img
+          src={pinkBg}
+          alt="pinkBg"
+          className="absolute top-[10rem] right-0 z-0"
+        /> */}
+        <div className="lg:max-w-7xl mx-auto">
           <img src={meabout} alt="meabout" className="w-auto" />
           <div className="w-full lg:w-[1178px] mt-[5rem]">
             <p className="text-[48px] font-Freehand text-[#3F3F3E] leading-[161.4%] mb-8 text-justify">

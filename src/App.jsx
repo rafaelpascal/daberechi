@@ -7,7 +7,7 @@ const App = () => {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/home" element={<Home />}></Route>
+        <Route path="/" element={<Home />}></Route>
         <Route path="/work" element={<Work />}></Route>
         <Route path="/project/:id" element={<Singleproject />}></Route>
         <Route path="/aboutme" element={<Aboutme />}></Route>

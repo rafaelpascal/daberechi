@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   return (
@@ -15,9 +16,14 @@ const Profile = () => {
           </p>
         </div>
         <div className="w-full lg:w-[271px] flex justify-start lg:justify-end items-start lg:items-end">
-          <button className="text-[#161515] font-montalternates bg-white w-[271px] h-[66px] font-semibold text-[18px] rounded-full">
-            View my profile
-          </button>
+          <Link
+            to={"/work"}
+            className=" bg-white w-[271px] h-[66px] rounded-full flex justify-center items-center"
+          >
+            <p className="text-[#161515] font-montalternates font-semibold text-[18px] text-center">
+              View my profile
+            </p>
+          </Link>
         </div>
       </div>
     </div>

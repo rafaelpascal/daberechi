@@ -2,12 +2,36 @@ import React, { useState, useEffect } from "react";
 import logo from "../../assets/icon/logo.svg";
 import online from "../../assets/icon/open.svg";
 import buttonBar from "../../assets/icon/eva_menu-2-fill.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [activeNav, setActiveNav] = useState("/home");
+  const [activeNav, setActiveNav] = useState("/");
   const [isFixed, setIsFixed] = useState(false);
+  const location = useLocation();
+
+  const currentPath = location.pathname;
+  const homeClass =
+    currentPath === "/" ? "bg-black text-white rounded-full px-5 py-4" : "";
+  const workClass =
+    currentPath === "/work" ||
+    currentPath === "/project/1" ||
+    currentPath === "/project/2"
+      ? "bg-black text-white rounded-full px-5 py-4"
+      : "";
+  const aboutClass =
+    currentPath === "/aboutme"
+      ? "bg-black text-white rounded-full px-5 py-4"
+      : "";
+  const resumeClass =
+    currentPath === "/resume"
+      ? "bg-black text-white rounded-full px-5 py-4"
+      : "";
+
+  const smhomeClass = currentPath === "/home" ? "text-black" : "";
+  const smworkClass = currentPath === "/work" ? "text-black" : "";
+  const smaboutClass = currentPath === "/aboutme" ? "text-black" : "";
+  const smresumeClass = currentPath === "/resume" ? "text-black" : "";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,13 +50,15 @@ const Navbar = () => {
   return (
     <header
       className={`w-full h-[104px] flex justify-center items-center p-3 transition-transform duration-500 transform ${
-        isFixed ? "backdrop-filter backdrop-blur-xl fixed z-10" : ""
+        isFixed ? "backdrop-filter backdrop-blur-xl fixed z-20" : ""
       }`}
     >
-      <div className="w-full h-[104px] flex justify-between items-center lg:py-10 lg:max-w-7xl mx-auto p-3">
-        <div>
+      <div
+        className={`w-full h-[104px] flex justify-between items-center lg:py-10 lg:max-w-7xl mx-auto p-3`}
+      >
+        <Link to={"/"}>
           <img src={logo} alt="Logo" className="w-[36px]" />
-        </div>
+        </Link>
         <div className="block sm:hidden">
           <button
             onClick={toggleDropdown}
@@ -50,17 +76,41 @@ const Navbar = () => {
                 aria-labelledby="dropdownButton"
               >
                 <ul className="flex flex-col justify-between items-start w-full">
-                  <li className="text-[#898F99] text-[16px] font-montalternates py-2">
-                    <a href="#">Home</a>
+                  <li className="py-4">
+                    <Link
+                      to={"/"}
+                      onClick={() => setActiveNav("/")}
+                      className={`text-[#898F99] text-[16px] font-bold font-montalternates ${smhomeClass}`}
+                    >
+                      Home
+                    </Link>
                   </li>
-                  <li className="text-[#898F99] text-[16px] font-montalternates py-2">
-                    <a href="#">About me</a>
+                  <li className="">
+                    <Link
+                      to={"/aboutme"}
+                      onClick={() => setActiveNav("/aboutme")}
+                      className={`text-[#898F99] text-[16px] font-bold font-montalternates ${smaboutClass}`}
+                    >
+                      About me
+                    </Link>
                   </li>
-                  <li className="text-[#898F99] text-[16px] font-montalternates py-2">
-                    <a href="#">Works</a>
+                  <li className="py-4">
+                    <Link
+                      to={"/work"}
+                      onClick={() => setActiveNav("/work")}
+                      className={`text-[#898F99] text-[16px] font-bold font-montalternates ${smworkClass}`}
+                    >
+                      Works
+                    </Link>
                   </li>
-                  <li className="text-[#898F99] text-[16px] font-montalternates py-2">
-                    <a href="#">Resume</a>
+                  <li className="pb-4">
+                    <Link
+                      to={"/resume"}
+                      onClick={() => setActiveNav("/resume")}
+                      className={`text-[#898F99] text-[16px] font-bold font-montalternates ${smresumeClass}`}
+                    >
+                      Resume
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -70,63 +120,41 @@ const Navbar = () => {
         <div className="hidden sm:block">
           <div className="bg-[#EEEEEE99] w-[494px] backdrop-filter backdrop-blur-md h-[66px] flex justify-center items-center px-2 rounded-full">
             <ul className="flex justify-between items-center w-full">
-              <li
-                onClick={() => setActiveNav("/home")}
-                className="text-[#898F99] text-[16px] font-montalternates"
-              >
+              <li>
                 <Link
-                  to={"/home"}
-                  className={
-                    activeNav === "/home"
-                      ? "bg-black text-white rounded-full px-5 py-4"
-                      : ""
-                  }
+                  to={"/"}
+                  onClick={() => setActiveNav("/")}
+                  className={`text-[#898F99] text-[16px] font-montalternates ${homeClass}`}
                 >
                   Home
                 </Link>
               </li>
-              <li
-                onClick={() => setActiveNav("/aboutme")}
-                className="text-[#898F99] text-[16px] font-montalternates"
-              >
+              <li>
                 <Link
                   to={"/aboutme"}
-                  className={
-                    activeNav === "/aboutme"
-                      ? "bg-black text-white rounded-full px-5 py-4"
-                      : ""
-                  }
+                  onClick={() => setActiveNav("/aboutme")}
+                  className={`text-[#898F99] text-[16px] font-montalternates ${aboutClass}`}
                 >
                   About me
                 </Link>
               </li>
-              <li
-                onClick={() => setActiveNav("/work")}
-                className="text-[#898F99] text-[16px] font-montalternates"
-              >
+              <li>
                 <Link
                   to={"/work"}
-                  className={
-                    activeNav === "/work" || activeNav === "/project"
-                      ? "bg-black text-white rounded-full px-5 py-4"
-                      : ""
-                  }
+                  onClick={() => setActiveNav("/work")}
+                  className={`text-[#898F99] text-[16px] font-montalternates ${workClass}`}
                 >
                   Works
                 </Link>
               </li>
-              <li className="text-[#898F99] text-[16px] font-montalternates">
-                <a
-                  href="#resume"
-                  onClick={() => setActiveNav("#resume")}
-                  className={
-                    activeNav === "#resume"
-                      ? "bg-black text-white rounded-full px-5 py-4"
-                      : ""
-                  }
+              <li>
+                <Link
+                  to={"/resume"}
+                  onClick={() => setActiveNav("/resume")}
+                  className={`text-[#898F99] text-[16px] font-montalternates ${resumeClass}`}
                 >
                   Resume
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -3,13 +3,10 @@ import { projects } from "../../constants";
 
 const Projects = ({ onButtonClick }) => {
   return (
-    <div
-      className="bg-gradient-to-br from-white via-blue-50
-        to-pink-50"
-    >
+    <div className="">
       <div className="w-full flex flex-col justify-center items-center pt-[2rem] p-3">
         <div className="flex flex-col sm:flex-row justify-between gap-8 w-full lg:max-w-7xl mx-auto p-3 items-center">
-          <h2 className="text-[64px] lg:text-[96px] font-Lekton font-semibold leading-[92.9%] w-full lg:w-[500px]">
+          <h2 className="text-[60px] lg:text-[96px] font-Lekton font-semibold leading-[92.9%] w-full lg:w-[500px]">
             I create experiences
           </h2>
           <p className="w-full lg:w-[492px] text-justify font-montalternates text-[16px] font-semibold">

@@ -2,12 +2,8 @@ import dabIntro from "../../assets/image/dabintro.png";
 
 const Intro = () => {
   return (
-    <div
-      id="home"
-      className="bg-gradient-to-br from-white via-blue-50
-        to-pink-50"
-    >
-      <div className="w-full flex flex-col sm:flex-row justify-between items-center lg:py-10 lg:max-w-7xl mx-auto p-3">
+    <div id="home">
+      <div className="w-full flex flex-col sm:flex-row justify-between items-center py-10 lg:max-w-7xl mx-auto p-3">
         <div className="mb-[26px] lg:mb-0">
           <p className="text-black font-Freehand text-[32px] lg:text-[48px] leading-none font-normal justify-normal">
             Hi, my name is
