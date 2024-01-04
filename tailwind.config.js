@@ -6,7 +6,7 @@ export default {
     fontFamily: {
       montalternates: ["Montserrat Alternates", "sans-serif"],
       Freehand: ["Freehand575 BT", "sans-serif"],
-      Lekton: ["Lekton", "sans-serif"],
+      Lekton: ["Yeseva One", "serif"],
     },
   },
   plugins: [],

@@ -49,7 +49,7 @@ const Navbar = () => {
   };
   return (
     <header
-      className={`w-full h-[104px] flex justify-center items-center p-3 transition-transform duration-500 transform ${
+      className={`w-full h-[104px] flex justify-center items-center transition-transform duration-500 transform ${
         isFixed ? "backdrop-filter backdrop-blur-xl fixed z-20" : ""
       }`}
     >
@@ -123,7 +123,10 @@ const Navbar = () => {
               <li>
                 <Link
                   to={"/"}
-                  onClick={() => setActiveNav("/")}
+                  onClick={() => {
+                    setActiveNav("/");
+                    window.scrollTo(0, 0);
+                  }}
                   className={`text-[#898F99] text-[16px] font-montalternates ${homeClass}`}
                 >
                   Home
@@ -131,8 +134,11 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
+                  // href="#aboutme"
                   to={"/aboutme"}
-                  onClick={() => setActiveNav("/aboutme")}
+                  onClick={() => {
+                    setActiveNav("/aboutme");
+                  }}
                   className={`text-[#898F99] text-[16px] font-montalternates ${aboutClass}`}
                 >
                   About me
